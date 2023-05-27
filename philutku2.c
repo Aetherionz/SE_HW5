@@ -26,6 +26,8 @@ Compile: gcc -pthread -o philutku2 philutku2.c
 #include <semaphore.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <stdbool.h>
+#include <stdio.h>
 
 
 
@@ -98,7 +100,7 @@ void* philosopher_thread(void *argument)
 				if (sem_trywait(&forks[philosopher->rightForkIndex].mutex)==0)
 				{	
 					/* philisopehrs gets 2 forks!*/			
-					printf("Philosopher %d is Eating\n", philosopher->number)
+					printf("Philosopher %d is Eating\n", philosopher->number);
 
 					/* check this philisopers eaten before at least once*/
 					if (philosopher->eatenTimes)
